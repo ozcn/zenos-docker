@@ -14,7 +14,7 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
   slack-command:
-    image: ./slack-command
+    build: ./slack-command
     privileged: true
     depends_on:
       - nginx-proxy
