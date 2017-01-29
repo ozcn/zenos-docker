@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    privileged: true
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./docker-compose.d/certs:/etc/nginx/certs:ro
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
